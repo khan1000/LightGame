@@ -9,5 +9,7 @@ namespace LightGame
     public struct Cell
     {
         public bool IsLit { get; set; }
+
+       // public int AdjacentLit { get; set; }
     }
 }

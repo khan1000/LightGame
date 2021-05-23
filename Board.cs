@@ -41,11 +41,32 @@ namespace LightGame
         public void FlipCell(int row, int col) 
         {
             CellFlipped.Raise(this, new CellEventArgs(row, col));
-           
+            FlipAdjacentCells(row, col);
+        }
+
+        private void FlipAdjacentCells(int row, int col) 
+        {
+            if (CheckBounds( row + 1 , col))
+            {
+                CellFlipped.Raise(this, new CellEventArgs(row + 1, col));
+            }
+            if (CheckBounds(row - 1, col))
+            {
+                CellFlipped.Raise(this, new CellEventArgs(row - 1, col));
+            }
+            if (CheckBounds(row , col + 1))
+            {
+                CellFlipped.Raise(this, new CellEventArgs(row, col + 1));
+            }
+            if (CheckBounds(row , col -1))
+            {
+                CellFlipped.Raise(this, new CellEventArgs(row, col - 1));
+            }
 
         }
 
-        private IEnumerable<Point> GetAdjacentSquares(int row, int col)
+
+        private IEnumerable<Point> GetAdjacentCells(int row, int col)
         {
             for (int i = -1; i <= 1; i++)
             {
