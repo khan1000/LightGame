@@ -12,7 +12,9 @@ namespace LightGame
         {
             var handler = @event;
             if (handler != null)
+            {
                 handler(sender, e);
+            }
         }
 
         public static void Raise<T>(this EventHandler<T> @event, object sender, T e)
@@ -20,7 +22,9 @@ namespace LightGame
         {
             var handler = @event;
             if (handler != null)
+            {
                 handler(sender, e);
+            }
         }
     }
 }

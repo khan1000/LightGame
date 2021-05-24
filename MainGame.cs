@@ -25,7 +25,7 @@ namespace LightGame
         public void ShowBoard()
         {
             ResetTableStyles();
-            CreateButtons();
+            createButtons();
         }
 
         
@@ -38,7 +38,7 @@ namespace LightGame
             boardPanel.RowCount = Rows;
             boardPanel.ColumnCount = Columns;
 
-            for (int i = 0; i < Rows; i++)
+            for (int i = 0; i < Rows; i++) // enchance for loop
             {
                 boardPanel.RowStyles.Add(new RowStyle(SizeType.Percent, 100f));
             }
@@ -48,7 +48,7 @@ namespace LightGame
             }
         }
 
-        private void button_MouseDown(object sender, MouseEventArgs e)
+        private void buttonMouseDown(object sender, MouseEventArgs e)
         {
             Button button = (Button)sender;
             Point location = (Point)button.Tag;
@@ -59,7 +59,7 @@ namespace LightGame
         }
 
        
-        private void CreateButtons()
+        private void createButtons()
         {
             for (int i = 0; i < Rows; i++)
             {
@@ -73,7 +73,7 @@ namespace LightGame
                         Tag = new Point(i, j),
                         BackgroundImageLayout = ImageLayout.Stretch
                     };
-                    button.MouseDown += button_MouseDown;
+                    button.MouseDown += buttonMouseDown;
                     boardPanel.Controls.Add(button, j, i);
                 }
             }
@@ -83,22 +83,24 @@ namespace LightGame
         private void start_Click_1(object sender, EventArgs e)
         {
             presenter.NewGame();
-
         }
 
-        public void ChangeCell(int row, int col)
+        public void changeCell(int row, int col)
         {
             var button = (Button)boardPanel.GetControlFromPosition(col, row);
 
-            var bColor = button.BackColor;
+            var buttonColor = button.BackColor;
 
-            if(bColor == Color.DarkGreen) 
+            var active = Color.DarkGreen;
+            var inactive = Color.Lime;
+
+            if (buttonColor == active) 
             {
-                button.BackColor = Color.Lime;
+                button.BackColor = inactive;
             }
-            if (bColor == Color.Lime)
+            if (buttonColor == inactive)
             {
-                button.BackColor = Color.DarkGreen;
+                button.BackColor = active;
             }
 
 

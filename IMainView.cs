@@ -13,6 +13,6 @@ namespace LightGame
 
         void ShowBoard();
 
-        void ChangeCell(int row , int col);
+        void changeCell(int row , int col);
     }
 }

@@ -39,7 +39,7 @@ namespace LightGame
 
         private void OnClickCell(object sender,CellEventArgs e) 
         {
-            mainView.ChangeCell(e.Row, e.Column);
+            mainView.changeCell(e.Row, e.Column);
         }
     }
 }

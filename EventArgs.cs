@@ -12,12 +12,10 @@ namespace LightGame
         {
             this.Row = row;
             this.Column = column;
-            //this.AdjacentMines = adjacentMines;
         }
 
         public int Row { get; private set; }
         public int Column { get; private set; }
-        public int AdjacentMines { get; private set; }
 
     }
 }

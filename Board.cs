@@ -34,8 +34,7 @@ namespace LightGame
 
         public void Initialize()
         {
-            board = new Cell[rows, columns];
-            
+            board = new Cell[rows, columns];  
         }
 
         public void FlipCell(int row, int col) 
